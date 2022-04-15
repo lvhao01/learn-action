@@ -4,7 +4,7 @@
 const {getTimeD} = require('./tool.js');
 const {FROM_EMAIL,EMAIL_PASS,EMAIL_TO} = require('./env')
 const nodemailer = require('nodemailer'); //发送邮件的node插件
-function sendEmail (data){
+function sendEmail (){
     let transporter = nodemailer.createTransport({
         service: 'QQ', // 发送者的邮箱厂商，支持列表：https://nodemailer.com/smtp/well-known/
         port: 465, // SMTP 端口
@@ -30,6 +30,6 @@ function sendEmail (data){
     }); 
 }
 
-sendEmail(data)
+sendEmail()
 
 

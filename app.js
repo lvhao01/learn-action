@@ -24,7 +24,8 @@ function sendEmail (){
     //发送邮件
     transporter.sendMail(mailOptions, (error, info) => {
         if (error) {
-          throw new Error(toString(error));
+        //   throw new Error(toString(error));
+          return error;
         }
         console.log('邮件发送成功 ID：', info.messageId);
     }); 

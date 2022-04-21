@@ -2,8 +2,18 @@
 
 
 const {getTimeD} = require('./tool.js');
-const {FROM_EMAIL,EMAIL_PASS,EMAIL_TO} = require('./env')
+const {FROM_EMAIL,EMAIL_PASS,EMAIL_TO,LOG} = require('./env')
 const nodemailer = require('nodemailer'); //发送邮件的node插件
+const htmlContent=`
+<div style="width:100px;text-align: center;margin:15em auto 0;">
+<img style="width:100px;"
+src="${LOG}" 
+alt="">
+</div>
+<p style="text-indent: 2em;text-align: center;">亲爱的美少女战士</p>
+<p style="text-indent: 2em;text-align: center;">我们已经认识${getTimeD()}啦</p>
+<p style="text-indent: 2em;text-align: center;">加油干，努力吧苟！富贵，勿相忘！</p>
+`;
 function sendEmail (){
     let transporter = nodemailer.createTransport({
         service: 'QQ', // 发送者的邮箱厂商，支持列表：https://nodemailer.com/smtp/well-known/
@@ -18,17 +28,17 @@ function sendEmail (){
         from: `"甜甜甜" <${FROM_EMAIL}>`, // 发送者昵称和地址
         to: EMAIL_TO, // 接收者的邮箱地址
         subject: '奥里给主题', // 邮件主题
-        html:`当前时间为${new Date()}`
-
+        html:htmlContent
     };
     //发送邮件
     transporter.sendMail(mailOptions, (error, info) => {
         if (error) {
-        //   throw new Error(toString(error));
+          throw new Error(toString(error));
           return error;
         }
-        console.log('邮件发送成功 ID：', info.messageId);
+        // console.log('邮件发送成功 ID：', info.messageId);
     }); 
+    
 }
 
 sendEmail()

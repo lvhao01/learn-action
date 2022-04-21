@@ -19,4 +19,4 @@ jobs:
           EMAIL_TO: ${{ secrets.EMAIL_TO }}
         run: |
           yarn
-          yarn mailboxsend
+          yarn start

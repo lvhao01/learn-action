@@ -35,14 +35,3 @@ module.exports={
 }
 
 
-
-
-// let nickName =  '萍萍宝贝';
-// let data = {
-//     email:'491324693@qq.com',
-//     content:`<img style="width:100px;text-align: center;" src="http://blog.lovemysoul.vip/favicon.ico" alt="logo"/>
-//         <p style="text-indent: 2em;text-align: center;">亲爱的 ${ nickName } </p>
-//         <p style="text-indent: 2em;text-align: center;">2021年06月04日距现在${getTimeD()}啦</p>
-//         <p style="text-indent: 2em;text-align: center;">祝您工作顺利，心想事成！苟富贵勿相忘</p>
-//     `
-// }
